@@ -1,5 +1,5 @@
 // Variables globales
-const apiUrl = 'https://master--tienda-online-pruebaitnovai.netlify.app//api';
+const apiUrl = 'https://master--tienda-online-pruebaitnovai.netlify.app/api';
 
 // Document Ready
 $(document).ready(function() {
