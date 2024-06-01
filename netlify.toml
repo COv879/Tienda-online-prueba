@@ -1,7 +1,7 @@
 [build]
-  base = "Tienda-online-prueba"
-  publish = "Tienda-online-prueba/Frontend"
-  functions = "Tienda-online-prueba/Backend"
+  base = "/"
+  publish = "/Frontend"
+  functions = "/Backend"
 
 [[redirects]]
   from = "/api/*"
