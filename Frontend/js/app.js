@@ -1,5 +1,5 @@
 // Variables globales
-const apiUrl = 'https://master--tienda-online-pruebaitnovai.netlify.app/api';
+const apiUrl = '/.netlify/functions'; // Cambiar la URL base a las funciones de Netlify
 
 // Document Ready
 $(document).ready(function() {
@@ -31,7 +31,7 @@ function handleClearButtonClick() {
 
 // Función para obtener todos los productos
 function fetchProducts() {
-    fetch(`${apiUrl}/products`)
+    fetch(`${apiUrl}/getProducts`) // Utilizar la función Netlify para obtener los productos
         .then(response => response.json())
         .then(data => displayProducts(data))
         .catch(error => console.error('Error fetching products:', error));
@@ -39,7 +39,7 @@ function fetchProducts() {
 
 // Función para buscar productos por nombre
 function searchProducts(query) {
-    fetch(`${apiUrl}/products/search?search=${query}`)
+    fetch(`${apiUrl}/searchProducts?search=${query}`) // Utilizar la función Netlify para buscar productos
         .then(response => response.json())
         .then(data => displaySearchResults(data))
         .catch(error => console.error('Error fetching search results:', error));
@@ -89,8 +89,6 @@ function displaySearchResults(products) {
   }
 }
 
-
-
 // Función para crear una tarjeta de producto HTML
 function createProductCard(product) {
   const category = product.categoryName || 'Categoría no definida';
@@ -110,7 +108,6 @@ function createProductCard(product) {
 
   return productCard;
 }
-
 
 
 
