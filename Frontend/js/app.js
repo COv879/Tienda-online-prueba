@@ -1,5 +1,5 @@
 // Variables globales
-const apiUrl = '/.netlify/functions'; // Punto base para las funciones de Netlify
+const apiUrl = '/.netlify/functions';
 
 
 // Document Ready
