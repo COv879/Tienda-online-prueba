@@ -1,6 +1,5 @@
 // Variables globales
-const apiUrl = '../netlify/functions';
-
+const apiUrl = 'http://localhost:5000/api';
 
 // Document Ready
 $(document).ready(function() {
@@ -32,7 +31,7 @@ function handleClearButtonClick() {
 
 // Función para obtener todos los productos
 function fetchProducts() {
-    fetch(`${apiUrl}/getProducts`)
+    fetch(`${apiUrl}/products`)
         .then(response => response.json())
         .then(data => displayProducts(data))
         .catch(error => console.error('Error fetching products:', error));
@@ -40,7 +39,7 @@ function fetchProducts() {
 
 // Función para buscar productos por nombre
 function searchProducts(query) {
-  fetch(`${apiUrl}/searchProducts?search=${query}`)
+    fetch(`${apiUrl}/products/search?search=${query}`)
         .then(response => response.json())
         .then(data => displaySearchResults(data))
         .catch(error => console.error('Error fetching search results:', error));
