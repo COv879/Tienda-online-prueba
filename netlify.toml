@@ -1,0 +1,9 @@
+[build]
+  base = "Tienda-online-prueba"
+  publish = "Tienda-online-prueba/Frontend"
+  functions = "Tienda-online-prueba/Backend"
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://master--tienda-online-pruebaitnovai.netlify.app/api/:splat"
+  status = 200
