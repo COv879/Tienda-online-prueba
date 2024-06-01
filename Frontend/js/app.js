@@ -1,5 +1,5 @@
 // Variables globales
-const apiUrl = 'http://localhost:5000/api';
+const apiUrl = 'https://tienda-online-itnovai.netlify.app/api';
 
 // Document Ready
 $(document).ready(function() {

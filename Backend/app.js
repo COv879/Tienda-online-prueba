@@ -10,7 +10,9 @@ const app = express();
 syncDB();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: 'https://tienda-online-itnovai.netlify.app'
+}));
 app.use(bodyParser.json());
 
 // Rutas de API
