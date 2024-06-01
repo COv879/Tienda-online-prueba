@@ -1,6 +1,7 @@
 const { Product } = require('../../Backend/models/product');
 const { Category } = require('../../Backend/models/category'); 
 const { Op } = require('../../Backend/node_modules/sequelize');
+const sequelize = require('../../Backend/config/db');s
 
 exports.handler = async (event, context) => {
     const { search } = event.queryStringParameters;
