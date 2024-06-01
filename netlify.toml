@@ -1,0 +1,2 @@
+[build]
+  publish = "Frontend"  # Carpeta donde está tu archivo index.html
