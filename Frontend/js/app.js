@@ -1,5 +1,6 @@
 // Variables globales
-const apiUrl = 'https://tienda-online-itnovai.netlify.app/api';
+const apiUrl = '/.netlify/functions'; // Punto base para las funciones de Netlify
+
 
 // Document Ready
 $(document).ready(function() {
@@ -31,7 +32,7 @@ function handleClearButtonClick() {
 
 // Función para obtener todos los productos
 function fetchProducts() {
-    fetch(`${apiUrl}/products`)
+    fetch(`${apiUrl}/getProducts`)
         .then(response => response.json())
         .then(data => displayProducts(data))
         .catch(error => console.error('Error fetching products:', error));
@@ -39,7 +40,7 @@ function fetchProducts() {
 
 // Función para buscar productos por nombre
 function searchProducts(query) {
-    fetch(`${apiUrl}/products/search?search=${query}`)
+  fetch(`${apiUrl}/searchProducts?search=${query}`)
         .then(response => response.json())
         .then(data => displaySearchResults(data))
         .catch(error => console.error('Error fetching search results:', error));

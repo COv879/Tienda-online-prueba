@@ -1,2 +1,8 @@
 [build]
-  publish = "Frontend"  # Carpeta donde está tu archivo index.html
+  functions = "netlify/functions"
+  publish = "Frontend"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
