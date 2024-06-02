@@ -1,9 +1,8 @@
 [build]
-  base = "/"
-  publish = "/Frontend"
-  functions = "/functions"
+  publish = "Frontend"
+  functions = "functions"
 
 [[redirects]]
   from = "/api/*"
-  to = "http://master--tienda-online-pruebaitnovai.netlify.app/api/:splat"
+  to = "/.netlify/functions/:splat"
   status = 200

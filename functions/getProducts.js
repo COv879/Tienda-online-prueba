@@ -1,9 +1,12 @@
-// getProducts.js
+require('dotenv').config();
+const { handler } = require('@netlify/functions');
 const Product = require('../Backend/models/product');
 const Category = require('../Backend/models/category');
+const sequelize = require('../Backend/config/db');
 
-exports.handler = async (event, context) => {
+const getProducts = async (event, context) => {
   try {
+    await sequelize.authenticate();
     // Obtener todos los productos con su información
     const products = await Product.findAll({
       attributes: ['id', 'name', 'url_image', 'price', 'discount', 'category']
@@ -14,9 +17,7 @@ exports.handler = async (event, context) => {
 
     // Mapear los productos para agregar el nombre de la categoría
     const productsWithCategoryNames = products.map(product => {
-      // Encontrar el nombre de la categoría correspondiente
       const categoryName = categories.find(category => category.id === product.category)?.name;
-      // Devolver el producto con el nombre de la categoría
       return {
         ...product.toJSON(),
         categoryName: categoryName || 'Categoría no definida' // Si no se encuentra la categoría, se asigna un valor predeterminado
@@ -27,10 +28,15 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify(productsWithCategoryNames)
     };
+
   } catch (err) {
+
     return {
       statusCode: 500,
       body: JSON.stringify({ message: 'Server Error' })
     };
+
   }
 };
+
+module.exports.handler = handler(getProducts);
