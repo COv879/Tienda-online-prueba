@@ -1,10 +1,16 @@
-const { handler } = require('@netlify/functions');
+const { Handler } = require('@netlify/functions');
 const { Op } = require('sequelize');
 const Product = require('../Backend/models/product');
 const Category = require('../Backend/models/category');
-const sequelize = require('../Backend/config/db');
+const { Sequelize } = require('sequelize');
 
-const searchProducts = async (event, context) => {
+
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  dialect: 'mysql',
+});
+
+exports.handler = async (event, context) => {
   const { search } = event.queryStringParameters || {};
   try {
     await sequelize.authenticate();
@@ -43,5 +49,3 @@ const searchProducts = async (event, context) => {
 
   }
 };
-
-module.exports.handler = handler(searchProducts);

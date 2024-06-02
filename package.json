@@ -1,7 +1,19 @@
 {
+  "name": "tienda-online-prueba",
+  "version": "1.0.0",
+  "description": "Proyecto de tienda online",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Backend/app.js",
+    "build": "npm install --prefix Frontend && npm run build --prefix Frontend"
+  },
   "dependencies": {
-    "mysql2": "^3.10.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.9",
     "sequelize": "^6.37.3",
     "@netlify/functions": "^0.10.0"
-  }
+  },
+  "devDependencies": {}
 }
