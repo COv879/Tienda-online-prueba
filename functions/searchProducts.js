@@ -1,5 +1,6 @@
 const { Handler } = require('@netlify/functions');
 const { Op } = require('sequelize');
+const mysql2 = require('mysql2');
 const Product = require('../Backend/models/product');
 const Category = require('../Backend/models/category');
 const { Sequelize } = require('sequelize');
@@ -8,7 +9,7 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
   dialect: 'mysql',
-  dialectModule: require('mysql2')
+  dialectModule: mysql2,
 });
 
 exports.handler = async (event, context) => {
