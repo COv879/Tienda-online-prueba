@@ -1,5 +1,5 @@
 // Variables globales
-const apiUrl = './functions'; // Cambiar la URL base a las funciones de Netlify
+const apiUrl = '/functions'; // Cambiar la URL base a las funciones de Netlify
 //const apiUrl = 'http://localhost:5000/api';
 // Document Ready
 $(document).ready(function() {
