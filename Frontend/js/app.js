@@ -1,9 +1,7 @@
-// Variables globales
-const apiUrl = '/.netlify/functions'; // Cambiar la URL base a las funciones de Netlify
-//const apiUrl = 'http://localhost:5000/api';
-// Document Ready
+const apiUrl = '/.netlify/functions'; // URL de las funciones Netlify
+
+// Inicialización
 $(document).ready(function() {
-    // Inicialización
     initialize();
 
     // Event Listeners
@@ -24,14 +22,15 @@ function handleSearchButtonClick() {
     }
 }
 
+// Manejador del clic en el botón de limpiar
 function handleClearButtonClick() {
-  fetchProducts(); // Obtener todos los productos nuevamente
+  fetchProducts(); 
 }
 
 
 // Función para obtener todos los productos
 function fetchProducts() {
-    fetch(`${apiUrl}/getProducts`) // Utilizar la función Netlify para obtener los productos
+    fetch(`${apiUrl}/getProducts`) 
         .then(response => response.json())
         .then(data => displayProducts(data))
         .catch(error => console.error('Error fetching products:', error));
@@ -39,7 +38,7 @@ function fetchProducts() {
 
 // Función para buscar productos por nombre
 function searchProducts(query) {
-    fetch(`${apiUrl}/searchProducts?search=${query}`) // Utilizar la función Netlify para buscar productos
+    fetch(`${apiUrl}/searchProducts?search=${query}`) 
         .then(response => response.json())
         .then(data => displaySearchResults(data))
         .catch(error => console.error('Error fetching search results:', error));
@@ -50,7 +49,7 @@ function displayProducts(products) {
   const container = $('#productsContainer');
   container.empty();
   
-  const displayHeader = $('<h2 class="my-4">Todos los productos</h2>');
+  const displayHeader = $('<h2 class="my-4">Productos disponibles</h2>');
   container.append(displayHeader);
 
   const row = $('<div class="row"></div>');

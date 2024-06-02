@@ -26,11 +26,26 @@ La estructura del frontend está compuesta de la siguiente forma:
 | Ruta | Descripción |
 | --- | --- |
 | Frontend | Carpeta que contiene los archivos y carpetas del Frontend |
+| Frontend/assets | Archivos de imagenes que se utilizan en la página web. |
 | Frontend/index.html | Archivo HTML del Frontend que contiene la página web. |
 | Frontend/js/app.js | Archivo principal del Frontend. |
 | Frontend/css/styles.css | Archivo CSS del Frontend. |
 
+### functions (Netlify)
+La estructura de esta carpeta está compuesta de la siguiente forma:
+
+| Ruta | Descripción |
+| --- | --- |
+| functions | Carpeta que contiene las funciones para utilizarlas en el hosting de Netlify |
+| functions/getProducts.js | Función que obtiene todos los productos de la base de datos.|
+| functions/searchProducts.js | Función que realiza la búsqueda de productos.|
 
 ## Funcionamiento
-Primero, se realiza la sincronizacion a la base de datos, despues, se inicia el servidor con las rutas asociadas que indican a los controladores y estos relizan el despliegue de productos y la búsqueda de ellos.
+El funcionamiento del proyecto se detalla a continuación:
+
+    Primero, se realiza la sincronizacion a la base de datos para que la página despliegue todos los productos disponibles, despues, si el usuario quiere realizar una busqueda, se le solicita al usuario que ingrese el texto y se le muestra los resultados. Tambien se puede limpiar la página web con el botón de limpiar. 
+
+
+
+
 
