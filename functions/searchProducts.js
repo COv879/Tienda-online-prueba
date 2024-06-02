@@ -1,4 +1,4 @@
-const { handler } = require('@netlify/functions');
+import { handler } from '@netlify/functions';
 const { Op } = require('sequelize');
 const Product = require('../Backend/models/product');
 const Category = require('../Backend/models/category');
