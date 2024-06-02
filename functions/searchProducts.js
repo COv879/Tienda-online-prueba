@@ -1,8 +1,8 @@
 import { handler } from '@netlify/functions';
-const { Op } = require('sequelize');
-const Product = require('../Backend/models/product');
-const Category = require('../Backend/models/category');
-const { Sequelize } = require('sequelize');
+import { Op } from 'sequelize';
+import { Sequelize } from 'sequelize';
+import Product from '../Backend/models/product';
+import Category from '../Backend/models/category';
 import mysql2 from 'mysql2';
 
 
