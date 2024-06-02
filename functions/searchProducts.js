@@ -1,16 +1,8 @@
-import { handler } from '@netlify/functions';
-import { Op } from 'sequelize';
-import { Sequelize } from 'sequelize';
-import Product from '../Backend/models/product';
-import Category from '../Backend/models/category';
-import mysql2 from 'mysql2';
-
-
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-  dialectModule: mysql2,
-});
+const { handler } = require('@netlify/functions');
+const { Op } = require('sequelize');
+const Product = require('../Backend/models/product');
+const Category = require('../Backend/models/category');
+const sequelize = require('../Backend/config/db');
 
 exports.handler = async (event, context) => {
   const { search } = event.queryStringParameters || {};
