@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { handler } = require('@netlify/functions');
 const Product = require('../Backend/models/product');
 const Category = require('../Backend/models/category');

@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { handler } = require('@netlify/functions');
 const { Op } = require('sequelize');
 const Product = require('../Backend/models/product');
