@@ -1,5 +1,3 @@
-// functions/getProducts.js
-
 const { Handler } = require('@netlify/functions');
 const { Sequelize } = require('sequelize');
 const mysql2 = require('mysql2');
