@@ -3,8 +3,13 @@
   functions = "functions"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/api/getProducts"
+  to = "/.netlify/functions/getProducts"
+  status = 200
+
+[[redirects]]
+  from = "/api/searchProducts"
+  to = "/.netlify/functions/searchProducts"
   status = 200
 
 [[plugins]]
