@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const Category = require('./category');
 
+// describe el modelo de la tabla "product" de la base de datos
 const Product = sequelize.define('product', {
   id: {
     type: DataTypes.INTEGER,
