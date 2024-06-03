@@ -2,7 +2,7 @@
 ## Ejercicio de Entrevista ITNOVAI
 Este ejercicio consiste de la construcción de una página web que se encarga de gestionar la tienda online, el cual tiene una base de datos y una API. El proyecto se ha realizado en el marco de la entrevista ITNOVAI.
 
-La Página web está construida en el lenguaje de programación JavaScript, el Backend fue consturuido utilizando Express y Sequelize para la base de datos, mientras que el Frontend fue construido con Vainilla JavaScript. El proyecto se ha realizado en el marco de la entrevista ITNOVAI.
+La Página web está construida en el lenguaje de programación JavaScript, el Backend fue consturuido utilizando Express y Sequelize para la base de datos, mientras que el Frontend fue construido con Vainilla JavaScript, utilizando bootstrap para el diseño de la página. El proyecto se ha realizado en el marco de la entrevista ITNOVAI.
 
 
 ## Estructura
@@ -43,7 +43,7 @@ La estructura de esta carpeta está compuesta de la siguiente forma:
 ## Funcionamiento
 El funcionamiento del proyecto se detalla a continuación:
 
-    Primero, se realiza la sincronizacion a la base de datos para que la página despliegue todos los productos disponibles, despues, si el usuario quiere realizar una busqueda, se le solicita al usuario que ingrese el texto y se le muestra los resultados. Tambien se puede limpiar la página web con el botón de limpiar. 
+    Primero, se realiza la sincronizacion a la base de datos para que la página despliegue todos los productos disponibles agrupados por categoría. Luego, si el usuario quiere realizar una busqueda, se le solicita al usuario que ingrese el texto y se le muestra los resultados. Tambien se puede limpiar la página web con el botón de limpiar. 
 
 
 
