@@ -4,15 +4,17 @@ const Product = require('../Backend/models/product');
 const Category = require('../Backend/models/category');
 const sequelize = require('../Backend/config/db');
 
+
 exports.handler = async (event, context) => {
-  const { search } = event.queryStringParameters || {};
   try {
     await sequelize.authenticate();
+
+    const searchQuery = event.queryStringParameters.search || '';
 
     const products = await Product.findAll({
       where: {
         name: {
-          [Op.like]: `%${search}%`
+          [Op.like]: `%${searchQuery}%`
         }
       },
       attributes: ['id', 'name', 'url_image', 'price', 'discount', 'category']
@@ -20,26 +22,29 @@ exports.handler = async (event, context) => {
 
     const categories = await Category.findAll();
 
-    // Mapear los productos para agregar el nombre de la categoría
     const productsWithCategoryNames = products.map(product => {
-        const categoryName = categories.find(category => category.id === product.category)?.name;
-        return {
-            ...product.toJSON(),
-            categoryName: categoryName || 'Categoría no definida' // Si no se encuentra la categoría, se asigna un valor predeterminado
-        };
+      const categoryName = categories.find(category => category.id === product.category)?.name;
+      return {
+        ...product.toJSON(),
+        categoryName: categoryName || 'Categoría no definida'
+      };
     });
+
+    const productsGroupedByCategory = categories.map(category => {
+      return {
+        category: category.name,
+        products: productsWithCategoryNames.filter(product => product.category === category.id)
+      };
+    }).filter(group => group.products.length > 0);
 
     return {
       statusCode: 200,
-      body: JSON.stringify(productsWithCategoryNames)
+      body: JSON.stringify(productsGroupedByCategory),
     };
-
   } catch (error) {
-
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Server Error' })
+      body: JSON.stringify({ message: 'Server Error', error: error.message }),
     };
-
   }
 };

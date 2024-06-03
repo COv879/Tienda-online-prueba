@@ -45,46 +45,47 @@ function searchProducts(query) {
 }
 
 // Función para mostrar los productos en el DOM
-function displayProducts(products) {
+function displayProducts(categories) {
   const container = $('#productsContainer');
   container.empty();
-  
-  const displayHeader = $('<h2 class="my-4">Productos disponibles</h2>');
-  container.append(displayHeader);
 
-  const row = $('<div class="row"></div>');
-  products.forEach(product => {
-    const productCard = createProductCard(product, product.categoryName); // Pasar categoryName como parámetro
-    row.append(productCard);
+  categories.forEach(category => {
+      const categoryHeader = $('<h2 class="my-4"></h2>').text(category.category);
+      container.append(categoryHeader);
+
+      const row = $('<div class="row"></div>');
+      category.products.forEach(product => {
+          const productCard = createProductCard(product);
+          row.append(productCard);
+      });
+      container.append(row);
   });
-  container.append(row);
 
-  // Oculta los resultados de la búsqueda
   $('#searchResults').hide();
 }
 
 // Función para mostrar los resultados de búsqueda en el DOM
-function displaySearchResults(products) {
+function displaySearchResults(categories) {
   const container = $('#searchResults');
   container.empty();
 
-  if (products.length === 0) {
-    container.append('<p>No se encontraron productos</p>');
+  if (categories.length === 0) {
+      container.append('<p>No se encontraron productos</p>');
   } else {
-    const searchHeader = $('<h2 class="my-4">Resultados de la búsqueda</h2>');
-    container.append(searchHeader);
+      categories.forEach(category => {
+          const categoryHeader = $('<h2 class="my-4"></h2>').text(category.category);
+          container.append(categoryHeader);
 
-    const row = $('<div class="row"></div>');
-    products.forEach(product => {
-      const productCard = createProductCard(product, product.categoryName); // Pasar categoryName como parámetro
-      row.append(productCard);
-    });
+          const row = $('<div class="row"></div>');
+          category.products.forEach(product => {
+              const productCard = createProductCard(product);
+              row.append(productCard);
+          });
+          container.append(row);
+      });
 
-    container.append(row);
-    // Oculta los productos
-    $('#productsContainer').hide();
-    // Muestra los resultados de la búsqueda
-    container.show();
+      $('#productsContainer').hide();
+      container.show();
   }
 }
 
@@ -99,7 +100,7 @@ function createProductCard(product) {
                   <h5 class="card-title">${product.name}</h5>
                   <p class="card-text">$${product.price.toFixed(2)}</p>
                   <p class="card-text">Descuento: ${product.discount}%</p>
-                  <p class="card-text">Categoría: ${category}</p> <!-- Utilizar categoryName -->
+                  <p class="card-text">Categoría: ${category}</p>
               </div>
           </div>
       </div>

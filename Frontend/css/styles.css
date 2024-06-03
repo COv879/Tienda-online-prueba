@@ -1,12 +1,54 @@
-.product-card {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 16px;
-    margin: 8px;
-    text-align: center;
+/* Asegúrate de ajustar el tamaño de las tarjetas de producto */
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Esto asegura que la imagen cubra el área sin distorsionarse */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espacia los elementos dentro del cuerpo de la tarjeta */
+  flex-grow: 1; /* Permite que el cuerpo de la tarjeta crezca para llenar el espacio restante */
+}
+
+.card-title,
+.card-text {
+  margin-bottom: 10px; /* Espacio entre los elementos de la tarjeta */
+  text-align: center; /* Centrar el texto */
+}
+
+/* Ajusta el contenedor para que las tarjetas se alineen correctamente */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrar el contenido */
+}
+
+.col-md-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .col-md-3 {
+      flex: 0 0 50%;
+      max-width: 50%;
   }
-  .product-card img {
-    max-width: 100%;
-    height: auto;
+}
+
+@media (max-width: 576px) {
+  .col-md-3 {
+      flex: 0 0 100%;
+      max-width: 100%;
   }
-  
+}
