@@ -49,16 +49,22 @@ function displayProducts(categories) {
   const container = $('#productsContainer');
   container.empty();
 
+  const displayHeader = $('<h2 class="my-4"></h2>\n').text('Todos los productos');
+  container.append(displayHeader);
+
+  const displayRow = $('<div class="row"></div>');
+  container.append(displayRow);
+
   categories.forEach(category => {
       const categoryHeader = $('<h2 class="my-4"></h2>').text(category.category);
-      container.append(categoryHeader);
+      displayRow.append(categoryHeader);
 
-      const row = $('<div class="row"></div>');
+      const productRow = $('<div class="row"></div>');
       category.products.forEach(product => {
           const productCard = createProductCard(product);
-          row.append(productCard);
+          productRow.append(productCard);
       });
-      container.append(row);
+      displayRow.append(productRow);
   });
 
   $('#searchResults').hide();
@@ -72,16 +78,22 @@ function displaySearchResults(categories) {
   if (categories.length === 0) {
       container.append('<p>No se encontraron productos</p>');
   } else {
+    const searchHeader = $('<h2 class="my-4"></h2>\n').text('Resultados de búsqueda');
+    container.append(searchHeader);
+
+    const searchRow = $('<div class="row"></div>');
+    container.append(searchRow);
+
       categories.forEach(category => {
           const categoryHeader = $('<h2 class="my-4"></h2>').text(category.category);
-          container.append(categoryHeader);
+          searchRow.append(categoryHeader);
 
-          const row = $('<div class="row"></div>');
+          const productRow = $('<div class="row"></div>');
           category.products.forEach(product => {
               const productCard = createProductCard(product);
-              row.append(productCard);
+              productRow.append(productCard);
           });
-          container.append(row);
+          searchRow.append(productRow);
       });
 
       $('#productsContainer').hide();
