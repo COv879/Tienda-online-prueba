@@ -1,5 +1,5 @@
 # Tienda Online Backend
-## Ejercicio de Entrevista ITNOVAI
+## Descripción
 Este ejercicio consiste de la construcción de una página web que se encarga de gestionar la tienda online, el cual tiene una base de datos y una API. El proyecto se ha realizado en el marco de la entrevista ITNOVAI.
 
 La Página web está construida en el lenguaje de programación JavaScript, el Backend fue consturuido utilizando Express y Sequelize para la base de datos, mientras que el Frontend fue construido con Vainilla JavaScript, utilizando bootstrap para el diseño de la página. El proyecto se ha realizado en el marco de la entrevista ITNOVAI.
